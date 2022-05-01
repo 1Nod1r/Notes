@@ -23,27 +23,11 @@ class EntryViewController: UIViewController {
     
     @objc private func didTapSave(){
         if let text = titleField.text, !text.isEmpty, !noteField.text.isEmpty {
-            save(title: text, note: noteField.text)
             DispatchQueue.main.async {
                 self.titleField.reloadInputViews()
                 self.noteField.reloadInputViews()
             }
             completion?(text, noteField.text)
-        }
-    }
-
-    
-    private func save(title title: String, note note: String){
-        let context = getContext()
-        guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
-        let taskObject = Task(entity: entity, insertInto: context)
-        taskObject.title = titleField.text
-        taskObject.note = noteField.text
-        do {
-            try context.save()
-            print("saved")
-        } catch{
-            print(error.localizedDescription)
         }
     }
     

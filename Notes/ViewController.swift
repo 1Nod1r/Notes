@@ -23,26 +23,19 @@ class ViewController: UIViewController {
             label.isHidden = true
             table.isHidden = false
         }
-        else{
+        else if !task.isEmpty {
             label.isHidden = false
             table.isHidden = true
         }
         
     }
-    
-    private func getContext() -> NSManagedObjectContext{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let context = getContext()
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         let sortDescriptor2 = NSSortDescriptor(key: "note", ascending: true)
-        
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         do {
             task = try context.fetch(fetchRequest)
@@ -69,13 +62,18 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func getContext() -> NSManagedObjectContext{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    
     private func save(withTitle title: String, withNote note: String){
         let context = getContext()
         guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
         let taskObject = Task(entity: entity, insertInto: context)
         taskObject.note = note
         taskObject.title = title
-        
         do {
             try context.save()
             task.insert(taskObject, at: 0)
@@ -84,9 +82,25 @@ class ViewController: UIViewController {
         }
     }
     
+    private func deleteModel(with model: Task, completion: (Result<Void,Error>)->Void){
+        let context = getContext()
+        context.delete(model)
+        do {
+            try context.save()
+            completion(.success(()))
+        } catch {
+            completion(.failure(error))
+            print(error.localizedDescription)
+        }
+        
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1 
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return task.count
     }
@@ -105,7 +119,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "note") as? NoteViewController else { return }
         vc.title = "Note"
-        
         vc.note = task[indexPath.row].note
         vc.noteTitle = task[indexPath.row].title
         vc.navigationItem.largeTitleDisplayMode = .never
@@ -123,10 +136,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-            task.remove(at: indexPath.row)
+            self.task.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            
         case .none:
             break
         case .insert:
@@ -137,18 +148,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    private func deleteModel(with model: Task, completion: (Result<Void,Error>)->Void){
-        let context = getContext()
-        context.delete(model)
-        do {
-            try context.save()
-            completion(.success(()))
-        } catch {
-            completion(.failure(error))
-            print(error.localizedDescription)
-        }
-        
-    }
     
 }
 
