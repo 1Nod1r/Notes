@@ -56,8 +56,8 @@ class ViewController: UIViewController {
         vc.title = "New"
         vc.navigationItem.largeTitleDisplayMode = .never
         
-        vc.completion = { noteTitle, note in
-            
+        vc.completion = {[weak self] noteTitle, note in
+            guard let self = self else { return }
             self.navigationController?.popViewController(animated: true)
             self.save(withTitle: noteTitle, withNote: note)
             self.label.isHidden = true
