@@ -14,8 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet var label: UILabel!
     var task: [Task] = [Task]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureVC()
+    }
+    
+    
+    private func configureVC(){
         title = "Notes"
         table.delegate = self
         table.dataSource = self
@@ -23,13 +29,13 @@ class ViewController: UIViewController {
             label.isHidden = true
             table.isHidden = false
         }
-        else if !task.isEmpty {
+        else {
             label.isHidden = false
             table.isHidden = true
         }
-        
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let context = getContext()
@@ -147,7 +153,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
-    
 }
 
