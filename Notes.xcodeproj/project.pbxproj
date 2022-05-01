@@ -14,6 +14,8 @@
 		86C9A000281E8D65001EF449 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86C99FFE281E8D65001EF449 /* Notes.xcdatamodeld */; };
 		86C9A002281E8D68001EF449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C9A001281E8D68001EF449 /* Assets.xcassets */; };
 		86C9A005281E8D68001EF449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C9A003281E8D68001EF449 /* LaunchScreen.storyboard */; };
+		86C9A00D281E8D9F001EF449 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C9A00C281E8D9F001EF449 /* NoteViewController.swift */; };
+		86C9A00F281E8DAE001EF449 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C9A00E281E8DAE001EF449 /* EntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		86C9A001281E8D68001EF449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86C9A004281E8D68001EF449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86C9A006281E8D68001EF449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86C9A00C281E8D9F001EF449 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		86C9A00E281E8DAE001EF449 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				86C99FF5281E8D65001EF449 /* AppDelegate.swift */,
 				86C99FF7281E8D65001EF449 /* SceneDelegate.swift */,
 				86C99FF9281E8D65001EF449 /* ViewController.swift */,
+				86C9A00C281E8D9F001EF449 /* NoteViewController.swift */,
+				86C9A00E281E8DAE001EF449 /* EntryViewController.swift */,
 				86C99FFB281E8D65001EF449 /* Main.storyboard */,
 				86C9A001281E8D68001EF449 /* Assets.xcassets */,
 				86C9A003281E8D68001EF449 /* LaunchScreen.storyboard */,
@@ -144,7 +150,9 @@
 				86C99FFA281E8D65001EF449 /* ViewController.swift in Sources */,
 				86C99FF6281E8D65001EF449 /* AppDelegate.swift in Sources */,
 				86C99FF8281E8D65001EF449 /* SceneDelegate.swift in Sources */,
+				86C9A00D281E8D9F001EF449 /* NoteViewController.swift in Sources */,
 				86C9A000281E8D65001EF449 /* Notes.xcdatamodeld in Sources */,
+				86C9A00F281E8DAE001EF449 /* EntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
