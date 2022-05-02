@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class EntryViewController: UIViewController {
-
+    
     @IBOutlet var titleField: UITextField!
     @IBOutlet var noteField: UITextView!
     
@@ -17,6 +17,8 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleField.delegate = self
+        noteField.delegate = self
         titleField.becomeFirstResponder()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSave))
     }
@@ -28,6 +30,7 @@ class EntryViewController: UIViewController {
                 self.noteField.reloadInputViews()
             }
             completion?(text, noteField.text)
+            
         }
     }
     
@@ -36,4 +39,18 @@ class EntryViewController: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
+}
+
+extension EntryViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = titleField.text, !text.isEmpty, !noteField.text.isEmpty {
+            DispatchQueue.main.async {
+                self.titleField.reloadInputViews()
+                self.noteField.reloadInputViews()
+            }
+            
+            completion?(text, noteField.text)
+        }
+        return true
+    }
 }
