@@ -9,7 +9,7 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
-    @IBOutlet var titleField: UITextField!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var noteField: UITextView!
     
     public var noteTitle: String?
@@ -17,7 +17,8 @@ class NoteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleField.text = noteTitle
+        titleLabel.text = noteTitle
         noteField.text = note
     }
+
 }

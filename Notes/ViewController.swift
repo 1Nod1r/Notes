@@ -14,12 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet var label: UILabel!
     var task: [Task] = [Task]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
     }
-    
     
     private func configureVC(){
         title = "Notes"
@@ -34,7 +32,6 @@ class ViewController: UIViewController {
             table.isHidden = true
         }
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,12 +47,10 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func didTapNewNote(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "new") as? EntryViewController else { return }
         vc.title = "New"
         vc.navigationItem.largeTitleDisplayMode = .never
-        
         vc.completion = {[weak self] noteTitle, note in
             guard let self = self else { return }
             self.navigationController?.popViewController(animated: true)
@@ -72,7 +67,6 @@ class ViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
     
     private func save(withTitle title: String, withNote note: String){
         let context = getContext()
@@ -127,6 +121,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         vc.title = "Note"
         vc.note = task[indexPath.row].note
         vc.noteTitle = task[indexPath.row].title
+        navigationController?.navigationBar.tintColor = .label
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
