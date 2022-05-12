@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		86207CD8282AB27E00749C76 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86207CD7282AB27E00749C76 /* MainTableViewCell.swift */; };
-		86207CDA282AB29500749C76 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86207CD9282AB29500749C76 /* MainTableViewCell.xib */; };
 		86207CDC282AB6E300749C76 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86207CDB282AB6E300749C76 /* ViewModel.swift */; };
 		86207CDE282ABA0300749C76 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86207CDD282ABA0300749C76 /* NoteViewModel.swift */; };
 		86207CE6282AE10F00749C76 /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86207CE5282AE10F00749C76 /* EntryViewModel.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		86207CD7282AB27E00749C76 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		86207CD9282AB29500749C76 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		86207CDB282AB6E300749C76 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		86207CDD282ABA0300749C76 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		86207CE5282AE10F00749C76 /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				86207CD7282AB27E00749C76 /* MainTableViewCell.swift */,
-				86207CD9282AB29500749C76 /* MainTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 			files = (
 				86C9A005281E8D68001EF449 /* LaunchScreen.storyboard in Resources */,
 				86C9A002281E8D68001EF449 /* Assets.xcassets in Resources */,
-				86207CDA282AB29500749C76 /* MainTableViewCell.xib in Resources */,
 				86C99FFD281E8D65001EF449 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

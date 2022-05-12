@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     func configureTableView(){
-        table.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
+        table.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.id)
     }
     
     @IBAction func didTapNewNote(){
@@ -68,6 +68,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
