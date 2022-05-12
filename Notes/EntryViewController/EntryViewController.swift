@@ -13,6 +13,8 @@ class EntryViewController: UIViewController {
     @IBOutlet var titleField: UITextField!
     @IBOutlet var noteField: UITextView!
     
+    var viewModel = EntryViewModel()
+    
     public var completion: ((String,String)->Void)?
     
     override func viewDidLoad() {
@@ -24,14 +26,9 @@ class EntryViewController: UIViewController {
     }
     
     @objc private func didTapSave(){
-        if let text = titleField.text, !text.isEmpty, !noteField.text.isEmpty {
-            DispatchQueue.main.async {
-                self.titleField.reloadInputViews()
-                self.noteField.reloadInputViews()
-            }
+        guard let text = titleField.text, let note = noteField.text else { return }
+            self.viewModel.saveTask(title: text, note: note)
             completion?(text, noteField.text)
-            
-        }
     }
     
     private func getContext() -> NSManagedObjectContext{

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7sR-5J-iFf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7sR-5J-iFf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,6 +56,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gOg-pJ-1DB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="re5-aw-fkX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -157,38 +161,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96X-9s-J6F">
-                                <rect key="frame" x="10" y="54" width="394" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="e0b-5T-9Y4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ScS-nq-xcP">
-                                <rect key="frame" x="10" y="124" width="394" height="728"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ScS-nq-xcP">
+                                <rect key="frame" x="10" y="116" width="394" height="736"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rix-e0-hVN">
+                                <rect key="frame" x="10" y="54" width="394" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Ic5-Jj-YdI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UnE-qK-rBw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="96X-9s-J6F" firstAttribute="top" secondItem="UnE-qK-rBw" secondAttribute="top" constant="10" id="5pL-oh-c1c"/>
+                            <constraint firstItem="rix-e0-hVN" firstAttribute="leading" secondItem="UnE-qK-rBw" secondAttribute="leading" constant="10" id="4Za-5e-n25"/>
                             <constraint firstItem="UnE-qK-rBw" firstAttribute="bottom" secondItem="ScS-nq-xcP" secondAttribute="bottom" constant="10" id="6dY-2n-gd3"/>
+                            <constraint firstItem="ScS-nq-xcP" firstAttribute="top" secondItem="rix-e0-hVN" secondAttribute="bottom" constant="10" id="9d6-QS-uYw"/>
                             <constraint firstItem="UnE-qK-rBw" firstAttribute="trailing" secondItem="ScS-nq-xcP" secondAttribute="trailing" constant="10" id="AMq-52-NSx"/>
                             <constraint firstItem="ScS-nq-xcP" firstAttribute="leading" secondItem="UnE-qK-rBw" secondAttribute="leading" constant="10" id="Bvp-4w-DoF"/>
-                            <constraint firstItem="UnE-qK-rBw" firstAttribute="trailing" secondItem="96X-9s-J6F" secondAttribute="trailing" constant="10" id="CHr-7d-C22"/>
-                            <constraint firstItem="96X-9s-J6F" firstAttribute="leading" secondItem="UnE-qK-rBw" secondAttribute="leading" constant="10" id="iIH-nU-rmA"/>
-                            <constraint firstItem="ScS-nq-xcP" firstAttribute="top" secondItem="96X-9s-J6F" secondAttribute="bottom" constant="10" id="qLX-hu-CDd"/>
+                            <constraint firstItem="UnE-qK-rBw" firstAttribute="trailing" secondItem="rix-e0-hVN" secondAttribute="trailing" constant="10" id="JKY-d9-AVf"/>
+                            <constraint firstItem="rix-e0-hVN" firstAttribute="top" secondItem="UnE-qK-rBw" secondAttribute="top" constant="10" id="u00-xK-CWW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noteField" destination="ScS-nq-xcP" id="Ei0-nt-P3F"/>
-                        <outlet property="titleLabel" destination="96X-9s-J6F" id="Zpb-cy-H1Q"/>
+                        <outlet property="titleField" destination="rix-e0-hVN" id="HH9-Tj-sdE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6I-0d-1x9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
